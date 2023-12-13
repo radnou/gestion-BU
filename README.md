@@ -46,5 +46,3 @@ Magazine extends Média
     - Scénario Principal : L'utilisateur sélectionne un livre à emprunter. Le système enregistre l'emprunt et met à jour la disponibilité du livre.
 
 ---
-
-Ce README fournit un bon point de départ pour votre projet. Vous pouvez étendre chaque section avec plus de détails selon l'avancement de votre projet. Pour le diagramme de classe et les cas d'utilisation, je recommande d'utiliser un outil de modélisation UML pour créer des représentations visuelles détaillées.
