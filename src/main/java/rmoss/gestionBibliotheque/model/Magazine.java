@@ -1,4 +1,4 @@
-package rmoss.gestionbu.model;
+package rmoss.gestionBibliotheque.model;
 
 import java.util.Date;
 

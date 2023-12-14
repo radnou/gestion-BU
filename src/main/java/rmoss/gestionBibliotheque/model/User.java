@@ -1,4 +1,4 @@
-package rmoss.gestionbu.model;
+package rmoss.gestionBibliotheque.model;
 
 
 public class User {

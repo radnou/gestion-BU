@@ -1,4 +1,4 @@
-package rmoss.gestionbu.model;
+package rmoss.gestionBibliotheque.model;
 
 import java.util.Date;
 
@@ -9,6 +9,9 @@ public class Book extends Media {
         super(title, author, parutionDate, type);
         this.ISBN = ISBN;
     }
+
+//generate lambda function to create ISBN
+
 
     public String getISBN() {
         return ISBN;

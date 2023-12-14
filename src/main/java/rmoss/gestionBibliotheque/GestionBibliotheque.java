@@ -1,6 +1,6 @@
-package rmoss.gestionbu;
+package rmoss.gestionBibliotheque;
 
-public class Main {
+public class GestionBibliotheque {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
