@@ -3,7 +3,7 @@ package rmoss.gestionBibliotheque.model;
 import java.util.HashSet;
 
 public class Bibliotheque {
-    private HashSet<Book> books= new HashSet<>();
+    private HashSet<Book> books = new HashSet<>();
     private HashSet<Magazine> magazines = new HashSet<>();
 
     public Bibliotheque() {
@@ -31,5 +31,22 @@ public class Bibliotheque {
                 "books=" + books +
                 ", magazines=" + magazines +
                 '}';
+    }
+
+    public boolean addBook(Book book) {
+        return this.books.add(book);
+    }
+
+    public boolean addMagazine(Magazine magazine) {
+        return this.magazines.add(magazine);
+    }
+
+    public Book getBookFromISBN(String isbn) throws Exception {
+        for (Book book : books) {
+            if (book.getISBN().equals(isbn)) {
+                return book;
+            }
+        }
+        throw new Exception("the isbn is not found");
     }
 }

@@ -6,7 +6,7 @@ import rmoss.gestionBibliotheque.model.Magazine;
 import rmoss.gestionBibliotheque.model.Media;
 
 public class BibliothequeController {
-    private Bibliotheque bibliotheque;
+    private final Bibliotheque bibliotheque;
 
     public BibliothequeController(Bibliotheque bibliotheque) {
         this.bibliotheque = bibliotheque;
@@ -14,9 +14,9 @@ public class BibliothequeController {
 
     public void addMedia (Media media) throws Exception {
         if (media.getClass().equals(Book.class)) {
-            bibliotheque.getBooks().add((Book) media);
+            bibliotheque.addBook((Book) media);
         } else if (media.getClass().equals(Magazine.class)) {
-            bibliotheque.getMagazines().add((Magazine) media);
+            bibliotheque.addMagazine((Magazine) media);
         } else {
             throw new Exception("Type de media non pris en charge " + media.getClass());
         }
