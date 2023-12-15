@@ -47,6 +47,6 @@ public class Bibliotheque {
                 return book;
             }
         }
-        throw new Exception("the isbn is not found");
+        throw new Exception(String.valueOf(String.format("the book with isbn %s is not found", isbn)));
     }
 }

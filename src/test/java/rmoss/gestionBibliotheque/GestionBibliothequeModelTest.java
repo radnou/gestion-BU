@@ -2,37 +2,42 @@ package rmoss.gestionBibliotheque;
 
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import rmoss.gestionBibliotheque.model.Bibliotheque;
 import rmoss.gestionBibliotheque.model.Book;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 
 public class GestionBibliothequeModelTest {
 
-    private final Bibliotheque bibliotheque;
-    private Book book1;
-
-    public GestionBibliothequeModelTest(Bibliotheque bibliotheque) {
-        this.bibliotheque = bibliotheque;
-    }
+    private static final Bibliotheque bibliotheque = new Bibliotheque();
+    private static Book book1;
 
     @BeforeAll
-    private void initTest() {
+    public static void initTest() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        book1 = new Book(
-                "1984",
-                "George Orwell",
-                sdf.parse("1949-06-08"),
-                "Dystopian",
-                "978-0451524935"
-        );
+        try {
+            book1 = new Book(
+                    "1984",
+                    "George Orwell",
+                    sdf.parse("1949-06-08"),
+                    "Dystopian",
+                    "978-0451524935"
+            );
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
@@ -43,11 +48,18 @@ public class GestionBibliothequeModelTest {
     }
 
     @Test
-    public void shouldGetBookFromBibliotheque() throws Exception {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
+    public void shouldGetBookByIsbnFromBibliotheque() throws Exception {
         Book bookResult = bibliotheque.getBookFromISBN(book1.getISBN());
-        assertThat(bookResult.getISBN(), is(book1.getISBN()).isExceptional());
+        assertEquals(bookResult.getISBN(), book1.getISBN());
+    }
+
+    @Test
+    public void shouldNotGetBookByIsbnFromBibliotheque() throws Exception {
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            bibliotheque.getBookFromISBN("ISBNThatNotExists");
+        });
+        assertTrue(exception.getMessage().contains("he book with isbn ISBNThatNotExists is not found"));
 
     }
 
