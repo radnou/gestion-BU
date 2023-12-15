@@ -63,4 +63,17 @@ public class GestionBibliothequeModelTest {
 
     }
 
+    @Test
+    public void shouldUpdateBook() throws Exception {
+        book1.setType("realism");
+        book1.setTitle("World");
+        book1.setAuthor("toto");
+        bibliotheque.updateBook(book1);
+        Book book2 = bibliotheque.getBookFromISBN(book1.getISBN());
+        assertEquals(book2.getType(), book1.getType());
+        assertEquals(book2.getAuthor(), book1.getAuthor());
+        assertEquals(book2.getTitle(), book1.getTitle());
+
+    }
+
 }

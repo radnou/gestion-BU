@@ -49,4 +49,14 @@ public class Bibliotheque {
         }
         throw new Exception(String.valueOf(String.format("the book with isbn %s is not found", isbn)));
     }
+
+    public boolean updateBook(Book book1) throws Exception {
+        Book book = getBookFromISBN(book1.getISBN());
+        book.setType(book1.getType());
+        book.setAuthor(book1.getAuthor());
+        book.setTitle(book.getTitle());
+        book.setParutionDate(book.getParutionDate());
+        return true;
+
+    }
 }
