@@ -10,6 +10,10 @@ public class Book extends Media {
         this.ISBN = ISBN;
     }
 
+    public Book(Book book) {
+        this(book.getTitle(), book.getAuthor(), book.getParutionDate(), book.getType(), book.getISBN());
+    }
+
 //generate lambda function to create ISBN
 
 
@@ -20,4 +24,6 @@ public class Book extends Media {
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
+
+
 }

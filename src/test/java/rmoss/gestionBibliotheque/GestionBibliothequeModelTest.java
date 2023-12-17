@@ -76,4 +76,14 @@ public class GestionBibliothequeModelTest {
 
     }
 
+    @Test
+    public void shouldRemoveBookFromBibliotheque() throws Exception {
+        Book book2 = new Book(book1);
+        book2.setISBN("DSFASDFGADS");
+        book2.setTitle("World");
+        bibliotheque.addBook(book2);
+
+        assertTrue(bibliotheque.removeBook(book2));
+    }
+
 }

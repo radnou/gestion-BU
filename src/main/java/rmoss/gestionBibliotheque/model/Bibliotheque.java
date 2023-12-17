@@ -59,4 +59,13 @@ public class Bibliotheque {
         return true;
 
     }
+
+    public boolean removeBook(Book bookToDelete) throws Exception {
+        for (Book book : books) {
+            if (book.getISBN().equals(bookToDelete.getISBN())) {
+                return books.remove(book);
+            }
+        }
+        throw new Exception(String.valueOf(String.format("the book with isbn %s is not found", bookToDelete.toString())));
+    }
 }
