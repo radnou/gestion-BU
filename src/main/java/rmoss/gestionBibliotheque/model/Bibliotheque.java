@@ -3,10 +3,24 @@ package rmoss.gestionBibliotheque.model;
 import java.util.HashSet;
 
 public class Bibliotheque {
+
+    private String bibliothequeId;
+    private String bibliothequeName;
+
     private HashSet<Book> books = new HashSet<>();
     private HashSet<Magazine> magazines = new HashSet<>();
+    private HashSet<User> users = new HashSet<>();
 
     public Bibliotheque() {
+    }
+
+
+    public HashSet<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(HashSet<User> users) {
+        this.users = users;
     }
 
     public HashSet<Book> getBooks() {
@@ -23,14 +37,6 @@ public class Bibliotheque {
 
     public void setMagazines(HashSet<Magazine> magazines) {
         this.magazines = magazines;
-    }
-
-    @Override
-    public String toString() {
-        return "Bibliotheque{" +
-                "books=" + books +
-                ", magazines=" + magazines +
-                '}';
     }
 
     public boolean addBook(Book book) {
@@ -67,5 +73,40 @@ public class Bibliotheque {
             }
         }
         throw new Exception(String.valueOf(String.format("the book with isbn %s is not found", bookToDelete.toString())));
+    }
+
+    public String getBibliothequeId() {
+        return bibliothequeId;
+    }
+
+    public void setBibliothequeId(String bibliothequeId) {
+        this.bibliothequeId = bibliothequeId;
+    }
+
+    public String getBibliothequeName() {
+        return bibliothequeName;
+    }
+
+    public void setBibliothequeName(String bibliothequeName) {
+        this.bibliothequeName = bibliothequeName;
+    }
+
+    public int getTotalMediaCount() {
+        return books.size() + magazines.size();
+    }
+
+    public boolean isMediaAvailable(String mediaId) {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Bibliotheque{" +
+                "bibliothequeId='" + bibliothequeId + '\'' +
+                ", bibliothequeName='" + bibliothequeName + '\'' +
+                ", books=" + books +
+                ", magazines=" + magazines +
+                ", users=" + users +
+                '}';
     }
 }

@@ -28,6 +28,7 @@ public class GestionBibliothequeModelTest {
 
         try {
             book1 = new Book(
+                    "11",
                     "1984",
                     "George Orwell",
                     sdf.parse("1949-06-08"),

@@ -2,21 +2,23 @@ package rmoss.gestionBibliotheque.model;
 
 import java.util.Date;
 
-public class Media {
+public abstract class Media {
 
+
+    private String mediaId;
     private String title;
     private String author;
     private Date parutionDate;
     private String type;
 
     /**
-     *
      * @param title
      * @param author
      * @param parutionDate
      * @param type
      */
-    public Media(String title, String author, Date parutionDate, String type) {
+    public Media(String mediaId, String title, String author, Date parutionDate, String type) {
+        this.mediaId = mediaId;
         this.title = title;
         this.author = author;
         this.parutionDate = parutionDate;
@@ -54,5 +56,24 @@ public class Media {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getMediaId() {
+        return mediaId;
+    }
+
+    public void setMediaId(String mediaId) {
+        this.mediaId = mediaId;
+    }
+
+    @Override
+    public String toString() {
+        return "Media{" +
+                "mediaId='" + mediaId + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", parutionDate=" + parutionDate +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

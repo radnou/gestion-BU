@@ -12,7 +12,7 @@ public class BibliothequeController {
         this.bibliotheque = bibliotheque;
     }
 
-    public void addMedia (Media media) throws Exception {
+    public void addMedia(Media media) throws Exception {
         if (media.getClass().equals(Book.class)) {
             bibliotheque.addBook((Book) media);
         } else if (media.getClass().equals(Magazine.class)) {
