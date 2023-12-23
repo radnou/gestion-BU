@@ -2,7 +2,7 @@ package rmoss.gestionBibliotheque.model;
 
 import java.util.Date;
 
-public abstract class Media {
+public class Media {
 
 
     private String mediaId;

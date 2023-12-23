@@ -5,10 +5,12 @@ import rmoss.gestionBibliotheque.model.Book;
 import rmoss.gestionBibliotheque.model.Magazine;
 import rmoss.gestionBibliotheque.model.Media;
 
-public class BibliothequeController {
+import java.util.Optional;
+
+public class MediaController {
     private final Bibliotheque bibliotheque;
 
-    public BibliothequeController(Bibliotheque bibliotheque) {
+    public MediaController(Bibliotheque bibliotheque) {
         this.bibliotheque = bibliotheque;
     }
 
@@ -21,5 +23,23 @@ public class BibliothequeController {
             throw new Exception("Type de media non pris en charge " + media.getClass());
         }
 
+    }
+
+    public Media searchMedia(String mediaId) throws Exception {
+
+        Optional<Book> book = bibliotheque.getBooks().stream()
+                .filter(b -> b.getMediaId().equals(mediaId)).findFirst();
+
+        Optional<Magazine> magazine = bibliotheque.getMagazines().stream()
+                .filter(b -> b.getMediaId().equals(mediaId)).findFirst();
+
+
+        if (book.isPresent()) {
+            return book.get();
+        } else if (magazine.isPresent()) {
+            return magazine.get();
+        } else {
+            throw new Exception("Type de media non pris en charge " + mediaId);
+        }
     }
 }

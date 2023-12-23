@@ -21,6 +21,12 @@ public class Emprunt {
         this.dateEmprunt = dateEmprunt;
     }
 
+    public Emprunt(User user, Media media) {
+        this.emprunteur = user;
+        this.media = media;
+        this.dateEmprunt = new Date();
+    }
+
     public String getEmpruntId() {
         return empruntId;
     }
@@ -79,8 +85,7 @@ public class Emprunt {
 
     public long getLoanDuration() {
         long diffInMillis = Math.abs(dateRetourPrevu.getTime() - dateEmprunt.getTime());
-        long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
-        return diffInDays;
+        return TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
     }
 
     public boolean isOverdue() {
