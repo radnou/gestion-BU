@@ -11,7 +11,7 @@
         <!-- Politique de rotation basée sur le temps -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- Nom du fichier archivé avec intervalle de temps -->
-            <fileNamePattern>logs/archived/myapp-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <fileNamePattern>logs/archived/gestionBU-%d{yyyy-MM-dd}.log.zip</fileNamePattern>
 
             <!-- Conserver les logs pendant 30 jours -->
             <maxHistory>30</maxHistory>
@@ -27,7 +27,7 @@
     </appender>
 
     <!-- Configuration du logger root à un niveau de log -->
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="FILE"/>
     </root>
 

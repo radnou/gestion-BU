@@ -39,15 +39,15 @@ public class GestionBibliotheque {
 
             switch (choice) {
                 case 1:
-                    logger.trace("Option Gestion des Utilisateurs sélectionnée");
+                    logger.info("Option Gestion des Utilisateurs sélectionnée");
                     manageUsers();
                     break;
                 case 2:
-                    logger.trace("Option Gestion des Médias sélectionnée");
+                    logger.info("Option Gestion des Médias sélectionnée");
                     manageMedia();
                     break;
                 case 3:
-                    logger.trace("Option Gestion des Prêts sélectionnée");
+                    logger.info("Option Gestion des Prêts sélectionnée");
                     manageLoans();
                     break;
                 case 4:
@@ -63,7 +63,7 @@ public class GestionBibliotheque {
     }
 
     private static void manageUsers() {
-        logger.trace("Entrée dans la gestion des utilisateurs");
+        logger.info("Entrée dans la gestion des utilisateurs");
 
         boolean back = false;
         while (!back) {
@@ -102,12 +102,12 @@ public class GestionBibliotheque {
                     System.out.println("Option invalide. Veuillez réessayer.");
             }
         }
-        logger.trace("Sortie de la gestion des utilisateurs");
+        logger.info("Sortie de la gestion des utilisateurs");
 
     }
 
     private static void manageMedia() {
-        logger.trace("Entrée dans la gestion des médias");
+        logger.info("Entrée dans la gestion des médias");
 
         boolean back = false;
         while (!back) {
@@ -140,11 +140,11 @@ public class GestionBibliotheque {
                     System.out.println("Option invalide. Veuillez réessayer.");
             }
         }
-        logger.trace("Sortie de la gestion des médias");
+        logger.info("Sortie de la gestion des médias");
     }
 
     private static void manageLoans() {
-        logger.trace("Entrée dans la gestion des prêts");
+        logger.info("Entrée dans la gestion des prêts");
 
         boolean back = false;
         while (!back) {
@@ -173,7 +173,7 @@ public class GestionBibliotheque {
                     System.out.println("Option invalide. Veuillez réessayer.");
             }
         }
-        logger.trace("Sortie de la gestion des prêts");
+        logger.info("Sortie de la gestion des prêts");
 
     }
 
